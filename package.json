@@ -1,0 +1,26 @@
+{
+  "name": "graphcool-local",
+  "version": "1.0.0",
+  "description": "Example basic graphql with mongo-graphql-starter",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node graphql.js",
+    "start": "npm run generate && node index.js"
+  },
+  "keywords": [],
+  "author": "@kenyk7",
+  "license": "MIT",
+  "dependencies": {
+    "@std/esm": "^0.12.4",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.6.1",
+    "mongo-graphql-starter": "^0.2.1",
+    "mongodb": "^2.2.33"
+  },
+  "engines": {
+    "node": ">= 8.8.1",
+    "npm": ">= 5.4.2"
+  }
+}
