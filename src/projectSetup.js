@@ -1,48 +1,67 @@
 import { dataTypes } from "mongo-graphql-starter";
-const { 
-  MongoIdType, 
-  StringType, 
-  IntType, 
-  FloatType, 
-  DateType, 
-  arrayOf, 
-  objectOf, 
-  formattedDate, 
-  typeLiteral 
+const {
+  MongoIdType,
+  StringType,
+  IntType,
+  FloatType,
+  DateType,
+  arrayOf,
+  objectOf,
+  formattedDate,
+  typeLiteral
 } = dataTypes;
 
-const Author = {
+
+const User = {
+  table: "users",
   fields: {
+    _id: MongoIdType,
     name: StringType,
+    email: StringType,
     birthday: DateType
   }
 };
 
-const Book = {
-  table: "books",
-  fields: {
-    _id: MongoIdType,
-    title: StringType,
-    pages: IntType,
-    weight: FloatType,
-    authors: arrayOf(Author),
-    primaryAuthor: objectOf(Author),
-    strArrs: typeLiteral("[[String]]"),
-    createdOn: DateType,
-    createdOnYearOnly: formattedDate({ format: "%Y" })
-  }
-};
-
-const Subject = {
-  table: "subjects",
+const Tag = {
+  table: "tags",
   fields: {
     _id: MongoIdType,
     name: StringType
   }
 };
 
+const Post = {
+  table: "posts",
+  fields: {
+    _id: MongoIdType,
+    title: StringType,
+    content: StringType,
+    author: objectOf(User),
+    tags: arrayOf(Tag),
+    likedPosts: arrayOf(User)
+  }
+};
+
+const Comment = {
+  table: "comments",
+  fields: {
+    _id: MongoIdType,
+    text: StringType,
+    upVotes: IntType,
+    downVotes: IntType,
+    author: objectOf(User),
+    post: objectOf(User)
+  }
+};
+
+User.fields.likes = arrayOf(Post);
+User.fields.posts = arrayOf(Post);
+Tag.fields.posts = arrayOf(Post);
+Post.fields.comments = arrayOf(Comment);
+
 export default {
-  Book,
-  Subject,
-  Author
+  User,
+  Tag,
+  Post,
+  Comment
 };

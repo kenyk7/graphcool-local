@@ -254,8 +254,8 @@ mkdirp@^0.5.1:
     minimist "0.0.8"
 
 mongo-graphql-starter@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/mongo-graphql-starter/-/mongo-graphql-starter-0.2.1.tgz#6d2fd0de9bf94327305159ed0df27d76a24a7677"
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/mongo-graphql-starter/-/mongo-graphql-starter-0.2.2.tgz#8d82a55fb7b1fb47ac62f03a9c69e613b514c09c"
   dependencies:
     "@std/esm" "0.12.1"
     mkdirp "^0.5.1"
