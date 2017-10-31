@@ -1,4 +1,5 @@
 import { dataTypes } from "mongo-graphql-starter";
+
 const {
   MongoIdType,
   StringType,
@@ -50,7 +51,7 @@ const Comment = {
     upVotes: IntType,
     downVotes: IntType,
     author: objectOf(User),
-    post: objectOf(User)
+    post: objectOf(Post)
   }
 };
 
